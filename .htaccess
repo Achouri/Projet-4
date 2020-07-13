@@ -1,9 +1,11 @@
-# REDIRECT NON-WWW TO WWW 
-RewriteCond %{HTTP_HOST} ^la-chouette-agence/ 
-RewriteRule (.*) https://www.la-chouette-agence//$1 [R=301,L] 
+# Rewrite to www
+Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^https://achouri.github.io/Projet4/[nc]
+RewriteRule ^(.*)$ http://www.https://achouri.github.io/Projet4//$1 [r=301,nc]
 
-# REDIRECT ERROR 404
-ErrorDocument 404 /page-404.html
+# Custom 404 errors
+ErrorDocument 404 page-404.html
 
 # BEGIN Cache-Control Headers
 <IfModule mod_headers.c>
